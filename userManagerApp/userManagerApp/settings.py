@@ -7,7 +7,7 @@ SECRET_KEY = "django-insecure-zl*tv47hqu3zt7h#6y5inqz#+dzuz%n_jfx+2^oqqoljju=u+_
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 
 # Application definition
 
@@ -38,6 +38,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "userManagerApp.urls"
+AUTH_USER_MODEL = "users.User"
 
 TEMPLATES = [
     {
@@ -56,6 +57,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "userManagerApp.wsgi.application"
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 
 # Database
@@ -123,11 +125,12 @@ ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_REQUIRED = True
 
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
 STATIC_URL = "/static/"
-
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+STATICFILES_DIRS = [str(BASE_DIR / "static")]
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

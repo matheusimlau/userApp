@@ -10,10 +10,10 @@ services:
   web_migrate:
     extends:
       service: web
-    command: python manage.py migrate && python manage.py collectstatic --no-input
+    command: python manage.py migrate
   web_run:
     extends:
       service: web
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 127.0.0.1:8000
     ports:
       - "8000:8000"

@@ -5,8 +5,12 @@
 ## To run the application if you have docker installed simply run:
 
 ```bash
-docker compose up --build
+make docker-build
+make docker-collect
+make docker-up
 ```
+
+## When all running open up your browser and type http://127.0.0.1:8080/ in the url tab to open the app!
 
 ## pass the -d flag with you want to run in detached mode
 

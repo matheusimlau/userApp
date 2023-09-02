@@ -1,13 +1,15 @@
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env('./userManagerApp/.env.local')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-zl*tv47hqu3zt7h#6y5inqz#+dzuz%n_jfx+2^oqqoljju=u+_"
-
-DEBUG = True
-
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
+SECRET_KEY = env.str("SECRET_KEY")
+ALLOWED_HOSTS = [env.str('ALLOWED_HOSTS')]
 
 # Application definition
 
@@ -124,6 +126,7 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_REQUIRED = True
+SOCIALACCOUNT_LOGIN_ON_GET=True
 
 STATIC_ROOT = str(BASE_DIR / "staticfiles")
 STATIC_URL = "/static/"

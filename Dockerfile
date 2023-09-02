@@ -4,6 +4,8 @@ ENV PYTHONBUFFERED 1
 # set work directory
 WORKDIR /usr/src/app
 
+COPY ./userManagerApp/.env.local /usr/src/app/.env.local
+
 # install dependencies
 RUN pip install --upgrade pip setuptools
 COPY ./userManagerApp/requirements.txt /usr/src/app/requirements.txt

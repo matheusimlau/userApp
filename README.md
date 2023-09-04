@@ -10,7 +10,7 @@ make docker-collect
 make docker-up
 ```
 
-## When all running open up your browser and type http://127.0.0.1:8080/ in the url tab to open the app!
+## When all running open up your browser and type http://127.0.0.1:8000/ in the url tab to open the app!
 
 
 ## To run the application locally in case you dont have or don't want to use docker you can create a virtual environment
